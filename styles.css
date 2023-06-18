@@ -11,7 +11,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: black;
+    background-color: rgb(243, 196, 225);
     color: white;
 }
 
@@ -27,17 +27,22 @@ body{
 }
 
 .cell {
-    color: white;
+    color: pink;
+    text-align: center;
     width: 100px;
     height: 100px;
-    border: 3px solid;
+    border: 3px solid rgb(231, 148, 162);
     border-radius: 20%;
-    background-color: mediumslateblue;
+    background-color: white;
 }
 
 #reset{
-    color:white;
     width: 200px;
     height: 100px;
     font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+img{
+    height: 70px;
+    width: 70px;
 }
