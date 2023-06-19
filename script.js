@@ -1,5 +1,5 @@
-let playerOne = "O"
-let playerTwo = "X"
+let playerOne = image
+let playerTwo = newImage
 let currentPlayer = 1
 const grid = document.getElementById('grid')
 const cellElements = document.querySelectorAll('.cell');
@@ -131,7 +131,8 @@ function newImage() {
     document.body.append(img);
 }
 
-//function updateUI(image){}
+function updateUI(image){
+}
 
 
 
