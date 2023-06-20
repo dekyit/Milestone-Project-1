@@ -1,5 +1,13 @@
-let playerOne = image
-let playerTwo = newImage
+const playerOne = {
+    name:"Player 1",
+    imageSrc: 'assets/letterO.png'
+};
+
+const playerTwo = {
+    name: "Player 2",
+    imageSrc: 'assets/letterX.png'
+};
+
 let currentPlayer = 1
 const grid = document.getElementById('grid')
 const cellElements = document.querySelectorAll('.cell');
@@ -14,13 +22,23 @@ const restartButton = document.getElementById('restartButton')
 // ]
 let board = [0,0,0,0,0,0,0,0,0]
 
-function clearGame (restartButton){
-    currentPlayer = 1
-    board = [0,0,0,0,0,0,0,0,0]
-    restartButton.document.addClickListeners('click', () => {
-        img.remove();
-    })
-}
+
+ //restartButton.document.addClickListeners('click', () => {
+    //img.remove();  })
+
+  function clearGame() {
+    currentPlayer = 1;
+    board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+
+    //removing images
+    const imgElements = document.querySelectorAll('img');
+    // [img1, img2, img3]
+    for (let i = 0 ; i < imgElements.length ; i++ ){
+        const img = imgElements[i]
+        img.remove()
+    }
+  }  
 
 function isWinningMove(index){
 
@@ -119,22 +137,13 @@ function isWinningMove(index){
     return false
 }
 
-function image() {
-    let img = document.createElement('img');
-    img.src = "assets/letterX.png";
-    document.body.append(img);
+function updateUI(index){
+    const currentPlayerObj = currentPlayer === 1 ? playerOne : playerTwo;
+    const img = document.createElement('img');
+    img.src = currentPlayerObj.imageSrc;
+    const cell = document.getElementById(index)
+    cell.appendChild(img)
 }
-
-function newImage() {
-    let img = document.createElement('img');
-    img.src = "assets/letterO.png";
-    document.body.append(img);
-}
-
-function updateUI(image){
-}
-
-
 
 function alertPlayerWon(playerNumber) {
     console.log(playerNumber, "won") 
@@ -147,13 +156,13 @@ function addClickListeners(element, index) {
             // make the move
             board[index] = currentPlayer
             // update the ui
-            //updateUi()
+            updateUI(index)
             console.log(board)
             const isWinner = isWinningMove(index)
     
-            if (isWinner===true){
+            if (isWinner){
                 alertPlayerWon(currentPlayer)
-                clearGame()
+               // clearGame()
             } else {
                     // toggle the player
                 if (currentPlayer===1){
@@ -180,9 +189,4 @@ function placeMark(index) {
     console.log(index)
 }
     
-
-
-
-image ('assets/letterO.png');
-newImage ('assets/letterX.png');
 
