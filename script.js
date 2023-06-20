@@ -12,22 +12,18 @@ let currentPlayer = 1
 const grid = document.getElementById('grid')
 const cellElements = document.querySelectorAll('.cell');
 const restartButton = document.getElementById('restartButton')
-// const winningCombinations = [
-//     [0,1,2],
-//     [0,3,6],
-//     [1,4,7],
-//     [2,5,8],
-//     [0,4,8],
-//     [2,4,6]
-// ]
+
 let board = [0,0,0,0,0,0,0,0,0]
+
+
+
 
 
  //restartButton.document.addClickListeners('click', () => {
     //img.remove();  })
 
   function clearGame() {
-    currentPlayer = 1;
+    currentPlayer = 'player 1';
     board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 
@@ -145,8 +141,8 @@ function updateUI(index){
     cell.appendChild(img)
 }
 
-function alertPlayerWon(playerNumber) {
-    console.log(playerNumber, "won") 
+function alertPlayerWon(currentPlayer) {
+    alert("you win!")
 }
 
 //Add an eventlistener when clicked on cell-add mark-loop through cells to see if available first
@@ -159,6 +155,8 @@ function addClickListeners(element, index) {
             updateUI(index)
             console.log(board)
             const isWinner = isWinningMove(index)
+
+        placeMark(index);
     
             if (isWinner){
                 alertPlayerWon(currentPlayer)
@@ -178,8 +176,6 @@ function addClickListeners(element, index) {
             // send alert to player to choose another square
         }
             
-       
-        placeMark(index);
 
       });
 }
@@ -188,5 +184,3 @@ cellElements.forEach(addClickListeners)
 function placeMark(index) {
     console.log(index)
 }
-    
-
