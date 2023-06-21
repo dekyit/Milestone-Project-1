@@ -27,7 +27,6 @@ function clearGame() {
 }
 clearBtn.addEventListener('click', clearGame)
  
-
 function isWinningMove(index) {
   if (index === 0) {
     if (board[3] === board[0] && board[6] === board[0]) {
